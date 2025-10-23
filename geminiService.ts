@@ -1,4 +1,5 @@
-import type { NewsArticle } from '../types';
+
+import type { NewsArticle } from '../types.ts';
 
 /**
  * Agora, esta função está com o endereço CORRETO para a "cozinha" da Vercel.

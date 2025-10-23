@@ -1,7 +1,8 @@
-	import React, { useState, useCallback } from 'react';
+
+import React, { useState, useCallback } from 'react';
 import { fetchAndSummarizeNews } from './services/geminiService.ts';
-import type { NewsArticle } from './types';
-import { SearchIcon, LinkIcon, NewspaperIcon, ZapIcon } from './components/Icons';
+import type { NewsArticle } from './types.ts';
+import { SearchIcon, LinkIcon, NewspaperIcon, ZapIcon } from './components/Icons.tsx';
 
 const App: React.FC = () => {
   const [topic, setTopic] = useState<string>('');
