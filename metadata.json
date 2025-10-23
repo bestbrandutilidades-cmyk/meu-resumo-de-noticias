@@ -1,0 +1,5 @@
+{
+  "name": "Resumo de Notícias - RIT TV",
+  "description": "Uma aplicação que busca as últimas notícias sobre um determinado tema usando a API Gemini com Google Search, resume o conteúdo e fornece links para as fontes originais.",
+  "requestFramePermissions": []
+}
