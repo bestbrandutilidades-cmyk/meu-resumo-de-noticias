@@ -1,8 +1,0 @@
-# Este arquivo diz à Netlify como construir nosso site.
-[build]
-  # O comando que a Netlify deve rodar para "construir" o site.
-  command = "npm run build"
-  # A pasta onde o site final, pronto para ser publicado, estará.
-  publish = "dist"
-  # A pasta onde estão nossas "funções de garçom".
-  functions = "netlify/functions"
