@@ -1,13 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 import type { NewsArticle } from '../types';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export async function fetchAndSummarizeNews(topic: string): Promise<NewsArticle[]> {
+  if (!process.env.API_KEY) {
+    throw new Error("API_KEY environment variable not set");
+  }
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
   try {
     const prompt = `Busque as notícias mais recentes e relevantes sobre "${topic}". Para cada notícia encontrada, gere um bloco de texto. Cada bloco DEVE seguir ESTRITAMENTE o formato abaixo. Use "%%" como um separador EXATO entre cada bloco de notícia. NÃO adicione texto introdutório, cabeçalhos, rodapés, conclusões ou qualquer formatação markdown (como '*', '#', etc). A resposta deve conter apenas os blocos de notícias.
 
