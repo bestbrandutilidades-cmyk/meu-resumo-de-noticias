@@ -25,24 +25,30 @@ const App: React.FC = () => {
       setResults(newsArticles);
     } catch (err) {
       console.error(err);
-      const errorMessage = err instanceof Error ? err.message : 'Ocorreu um erro desconhecido.';
-      setError(`Ocorreu um erro ao buscar as notícias. Detalhes: ${errorMessage}`);
+      // The JSON parsing error is a strong indicator of an invalid API Key,
+      // as Google's API gateway may return an HTML error page instead of a JSON response.
+      // We provide a more specific and helpful message for this common deployment issue.
+      if (err instanceof Error && err.message.toLowerCase().includes('json')) {
+        setError('Falha na comunicação com a API. Isso geralmente ocorre por uma Chave de API inválida ou mal configurada. Verifique se a variável de ambiente API_KEY foi adicionada corretamente na sua plataforma de hospedagem (ex: Vercel).');
+      } else {
+        const errorMessage = err instanceof Error ? err.message : 'Ocorreu um erro desconhecido.';
+        setError(`Ocorreu um erro ao buscar as notícias. Detalhes: ${errorMessage}`);
+      }
     } finally {
       setLoading(false);
     }
   }, [topic]);
-  
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans flex flex-col items-center p-4 sm:p-6 md:p-8">
-      <div className="w-full max-w-4xl relative">
+      <div className="w-full max-w-4xl">
         <header className="text-center mb-8">
           <div className="flex items-center justify-center gap-4 mb-2">
              <div className="p-3 bg-orange-500/20 rounded-full">
                 <NewspaperIcon className="w-8 h-8 text-orange-400" />
              </div>
              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-orange-400 to-yellow-400 text-transparent bg-clip-text">
-                Resumo de Notícias - RIT TV
+                Resumo de Notícias - ATUALIZADO
              </h1>
           </div>
           <p className="text-slate-400 text-lg">
