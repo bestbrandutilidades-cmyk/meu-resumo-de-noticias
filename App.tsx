@@ -48,7 +48,7 @@ const App: React.FC = () => {
                 <NewspaperIcon className="w-8 h-8 text-orange-400" />
              </div>
              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-orange-400 to-yellow-400 text-transparent bg-clip-text">
-                Resumo de Notícias - ATUALIZADO
+                Resumo de Notícias - RIT TV
              </h1>
           </div>
           <p className="text-slate-400 text-lg">
