@@ -1,6 +1,7 @@
 {
   "name": "news-summary-app",
   "version": "1.0.0",
+  "type": "module",
   "description": "A news summarization app using Gemini.",
   "scripts": {
     "dev": "vite",
